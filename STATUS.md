@@ -203,4 +203,9 @@ Servidor reiniciado e confirmou-se:
 - ✅ PostgreSQL Session Store ativo
 - ✅ Admin user criado automaticamente
 - ✅ Zero erros de conexão
-- ✅ Porta 5000 funcionando         
+- ✅ Porta 5000 funcionando
+- 
+## PROBLEMA CRITICO IDENTIFICADO - Admin nao persiste em Supabase
+Situacao: Servidor cria admin mas nao salva em Supabase. Tabela users vazia.
+
+Solucao: Modificar server/routes.ts para adicionar db.insert(users) apos storage.createUser() e criar GET / com form HTML login.
